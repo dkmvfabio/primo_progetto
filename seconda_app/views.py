@@ -1,7 +1,8 @@
 from django.shortcuts import render
 import datetime
-def index(request):
-    return render(request,"seconda_app/index.html")
+
+def index2(request):
+    return render(request,"seconda_app/index2.html")
 
 def es_if(request):
     context={
