@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{%block title%} {{block.super}} | Differenza {%endblock title%}
+{%block content%}
+    <h2>Differenza</h2>
+    <b>numero 1 = {{ numero1 }}</b> <br/>
+    <b>numero 2 = {{ numero2 }}</b> <br/>
+    {% if numero1 > numero2 %}
+        <p><i>Il numero <i style="color:red">{{ numero1 }}</i> è il maggiore</i></p>
+        <p><i>Il numero <i style="color:green">{{ numero2 }}</i> è il minore</i></p>
+    {% elif numero1 < numero2 %}
+        <p><i>Il numero <i style="color:red">{{ numero2 }}</i> è il maggiore</i></p>
+        <p><i>Il numero <i style="color:green">{{ numero1 }}</i> è il minore</i></p>
+    {% else %}    
+        <p><i>Il numero <i style="color:black">{{ numero1 }}</i> è uguale al numero <i style="color:black">{{ numero2 }}</i></i></p>
+    {% endif %}
+    <b>La differenza tra il numero maggiore e quello minore equivale a {{ differenza }}</b> <br/>
+{%endblock content%}

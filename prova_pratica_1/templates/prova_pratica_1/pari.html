@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{%block title%} {{block.super}} | Pari {%endblock title%}
+{%block content%}
+    <h2>Pari e Dispari</h2>
+   {% for x in lista %}
+      {% if x|divisibleby:2 %}
+        <i style="color:green">{{ x }} è pari</i></br>
+      {% else %}
+        <i style="color:red">{{ x }} è dispari</i></br>
+      {% endif %}
+    {% endfor %}
+    </br>
+    <p>La quantità di numeri pari equivale a {{contaPari}}</p>
+    <p>La quantità di numeri dispari equivale a {{contaDispari}}</p>
+{%endblock content%}
