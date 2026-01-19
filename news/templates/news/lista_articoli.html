@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Giornalisti e Articoli
+    Lista Articoli
 {% endblock title %}
 
 {% block content %}
-<h4>Giornalisti</h4>
-    {% for giornalista in giornalisti %}
-        <p><strong>Nome: </strong> {{giornalista.nome}}</p>
-        <p><strong>Cognome: </strong> {{giornalista.cognome}}</p>
-    {% endfor %}
-<h4>Articoli</h4>
+{% if not is_vuota %}
+    {% if trovato %}:
+        <h4>Articoli del giornalista:</h4>
+    {% else %}
+        <h4>Tutti gli Articoli:</h4>
+    {% endif %}
+{% else %}
+    <h4>Nessun articolo trovato!</h4>
+{% endif %}
+<hr></hr>
     {% for articolo in articoli %}
         <p><strong>Titolo: </strong> {{articolo.titolo}}</p>
         <p><strong>Contenuto: </strong> {{articolo.contenuto}}</p>
         <p><strong>Giornalista: </strong> {{articolo.giornalista}}</p>
+        <hr></hr>
     {% endfor %}
 {% endblock content %}

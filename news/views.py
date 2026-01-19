@@ -54,8 +54,18 @@ def articoloDetailView(request, pk):
     return render(request, "articolo_detail.html", context)
 
 def listaArticoli(request, pk=None):
-    articoli = Articolo.objects.filter(giornalista_id=pk)
+    trovato = False
+    is_vuota = False
+    if pk:
+        articoli = Articolo.objects.filter(giornalista_id=pk)
+        trovato = True
+    else:
+        articoli = Articolo.objects.all()
+    if not articoli:
+        is_vuota = True
     context={
         'articoli': articoli,
-    }
+        'trovato': trovato,
+        'is_vuota': is_vuota
+    }   
     return render(request, 'lista_articoli.html', context)
