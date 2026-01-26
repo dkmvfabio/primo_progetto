@@ -49,10 +49,10 @@ def home(request):
     return render(request, "homepage.html", context)
 
 def articoloDetailView(request, pk):
-    # articolo = Articolo.objects.get(pk=pk)
-    articolo = get_object_or_404(Articolo, pk=pk)
+    articolo = Articolo.objects.get(pk=pk)
+    # articolo = get_object_or_404(Articolo, pk=pk)
     context = {"articolo": articolo}
-    return render(request, "articolo_detail.html", context)
+    return render(request, "news/articolo_detail.html", context)
 
 def listaArticoli(request, pk=None):
     trovato = False
@@ -73,7 +73,7 @@ def listaArticoli(request, pk=None):
 
 def queryBase(request):
     #1. Tutti gli articoli scritti da giornalisti di un certo cognome:
-    articoli_cognome = Articolo.objects.filter(giornalista__cognome='Rossi')
+    articoli_cognome = Articolo.objects.filter(giornalista__cognome='Illiano')
     
     #2. Totale
     numero_totale_articoli = Articolo.objects.count()
@@ -105,10 +105,10 @@ def queryBase(request):
     articoli_giornalisti = Articolo.objects.filter(giornalista__in=giornalisti_nati)
 
     #11. Il giornalista più giovane:
-    giornalista_giovane = Giornalista.objects.order_by('anno_di_nascita').first()
+    giornalista_giovane = Giornalista.objects.order_by('-anno_di_nascita').first()
 
     #12. Il giornalista più anziano:
-    giornalista_anziano = Giornalista.objects.order_by('-anno_di_nascita').first()
+    giornalista_anziano = Giornalista.objects.order_by('anno_di_nascita').first()
 
     #13. Gli ultimi 5 articoli pubblicati:
     ultimi = Articolo.objects.order_by('-data')[:5]
@@ -118,6 +118,8 @@ def queryBase(request):
 
     #15. Tutti gli articoli che contengono una certa parola nel titolo:
     articoli_parola = Articolo.objects.filter(titolo__icontains='importante')
+
+
 
     #Dizionazio Contenxt
     context = {
@@ -130,6 +132,7 @@ def queryBase(request):
         'giornalisti_data' : giornalisti_data,
         'articoli_del_giorno' : articoli_del_giorno,
         'articoli_periodo' : articoli_periodo,
+        'giornalisti_nati' : giornalisti_nati,
         'articoli_giornalisti' : articoli_giornalisti,
         'giornalista_giovane' : giornalista_giovane,
         'giornalista_anziano' : giornalista_anziano,

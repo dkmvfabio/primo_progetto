@@ -10,7 +10,7 @@
 
     <h4>1. Articoli scritti da giornalisti con un certo cognome</h4>
     {% for articolo in articoli_cognome %}
-        <p><strong>Id: </strong><a href="../articolo/{{ articolo.id }}">{{ articolo.id }}</a></p>
+        <p><strong>Id: </strong><a href="articoli/{{ articolo.id }}">{{ articolo.id }}</a></p>
         <p><strong>Titolo: </strong>{{ articolo.titolo }}</p>
         <p><strong>Contenuto: </strong>{{ articolo.contenuto }}</p>
         <p><strong>Autore: </strong>{{ articolo.giornalista }}</p>
@@ -27,7 +27,7 @@
 
     <h4>4. Articoli ordinati per visualizzazioni (decrescente)</h4>
     {% for articolo in articoli_ordinati %}
-        <p>{{ articolo.titolo }} – {{ articolo.visualizzazione }} visualizzazioni</p>
+        <p>{{ articolo.titolo }} – {{ articolo.visualizzazioni }} visualizzazioni</p>
     {% endfor %}
     <hr>
 
@@ -40,7 +40,7 @@
     <h4>6. Articolo più visualizzato</h4>
         <p>
             {{ articolo_piu_visualizzato.titolo }}
-            ({{ articolo_piu_visualizzato.visualizzazione }} visualizzazioni)
+            ({{ articolo_piu_visualizzato.visualizzazioni }} visualizzazioni)
         </p>
     <hr>
 
@@ -63,7 +63,7 @@
     <hr>
 
     <h4>10. Articoli di giornalisti nati prima del 1980</h4>
-    {% for articolo in articoli_giornalisti_nati %}
+    {% for articolo in articoli_giornalisti %}
         <p>{{ articolo.titolo }} – {{ articolo.giornalista }}</p>
     {% endfor %}
     <hr>
@@ -79,14 +79,14 @@
     <hr>
 
     <h4>13. Ultimi 5 articoli pubblicati</h4>
-    {% for articolo in ultimi_5_articoli %}
+    {% for articolo in ultimi %}
         <p>{{ articolo.titolo }} – {{ articolo.data }}</p>
     {% endfor %}
     <hr>
 
     <h4>14. Articoli con almeno 100 visualizzazioni</h4>
     {% for articolo in articoli_minime_visualizzazioni %}
-        <p>{{ articolo.titolo }} ({{ articolo.visualizzazione }})</p>
+        <p>{{ articolo.titolo }} ({{ articolo.visualizzazioni }})</p>
     {% endfor %}
     <hr>
 
