@@ -35,7 +35,7 @@ def mediaStudenti(request):
     context = {
         'medieVoti': medieVoti
     }
-    return render(request,"voti/media_studenti.html", context)
+    return render(request,"voti/media_voti.html", context)
 
 def datiStudenti(request):
     voti = {'Giuseppe Gullo':[("Matematica",9,0),("Italiano",7,3),("Inglese",7,4),("Storia",7,4),("Geografia",5,7)],
@@ -49,8 +49,8 @@ def datiStudenti(request):
     votoMin = 100
     materieMin = []
     studentiMin =  []
-    for studente, voti in voti.items():
-        for materia, voto, assenza in voti:
+    for studente, dati in voti.items():
+        for materia, voto, assenza in dati:
             if voto > votoMax:
                 votoMax = voto
             if voto < votoMin:
@@ -59,11 +59,11 @@ def datiStudenti(request):
     for studente, voti in voti.items():
         for materia, voto, assenza in voti:
             if voto == votoMax:
-                materieMax.append[materia]
-                studentiMax.append[studente]
+                materieMax.append(materia)
+                studentiMax.append(studente)
             if voto == votoMin:
-                materieMin.append[materia]
-                studentiMin.append[studente]
+                materieMin.append(materia)
+                studentiMin.append(studente)
        
 
     context = {

@@ -3,7 +3,7 @@
 {%block title%} {{block.super}} | Media voti {%endblock title%}
 {%block content%}
 <h4>Media voti</h4>
-   {% for studente, media in medieVoti %}
-        <i> • {{ studente }}: {{ media }}  </i>
+   {% for studente, media in medieVoti.items %}
+        <i> • {{ studente }}: {{ media }}  </i> </br>
     {% endfor %}
 {%endblock content%}
