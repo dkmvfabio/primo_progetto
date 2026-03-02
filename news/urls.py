@@ -1,11 +1,12 @@
 from django.urls import path
-from.views import home, articoloDetailView, index4, listaArticoli, queryBase, giornalistaDetailView
+from.views import home, articoloDetailView, index4, listaArticoli, queryBase, giornalistaDetailView, benvenuto
 
 app_name = 'news'
 
 urlpatterns = [
     path('', index4, name='index4'),
     path('homeview', home, name="homeview"),
+    path('benvenuto', benvenuto, name="benvenuto"),
     path("articoli/<int:pk>", articoloDetailView, name="articolo_detail"),
     path("giornalisti/<int:pk>", giornalistaDetailView, name="giornalista_detail"),
     path('lista_articoli', listaArticoli, name="lista_articoli"),

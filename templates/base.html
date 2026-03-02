@@ -72,6 +72,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'news:homeview'%}">Homepage</a>
+          <a class="dropdown-item" href="{% url 'news:benvenuto'%}">Benvenuto</a>
           <a class="dropdown-item" href="{% url 'news:lista_articoli'%}">Lista articoli</a>
           <a class="dropdown-item" href="{% url 'news:query_base'%}">Query base</a>
           <div class="dropdown-divider"></div>
@@ -93,7 +94,7 @@
   </div>
 </nav>
 
-<div>
+<div class="container my-4">
     {%block content%}
     {%endblock content%}
 

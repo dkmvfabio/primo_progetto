@@ -189,3 +189,6 @@ def queryBase(request):
         'articoli_con_not' : articoli_con_not
     }
     return render(request, 'query.html', context)
+
+def benvenuto(request):
+    return render(request,"news/benvenuto.html")

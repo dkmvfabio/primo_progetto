@@ -27,13 +27,13 @@
 
     <h4>4. Articoli ordinati per visualizzazioni (decrescente)</h4>
     {% for articolo in articoli_ordinati %}
-        <p>{{ articolo.titolo }} – {{ articolo.visualizzazioni }} visualizzazioni</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a> – {{ articolo.visualizzazioni }} visualizzazioni</p>
     {% endfor %}
     <hr>
 
     <h4>5. Articoli senza visualizzazioni</h4>
     {% for articolo in articoli_senza_visualizzazioni %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
     <hr>
 
@@ -52,19 +52,19 @@
 
     <h4>8. Articoli pubblicati il 01/01/2023</h4>
     {% for articolo in articoli_del_giorno %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
     <hr>
 
     <h4>9. Articoli pubblicati nel 2023</h4>
     {% for articolo in articoli_periodo %}
-        <p>{{ articolo.titolo }} – {{ articolo.data }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a> – {{ articolo.data }}</p>
     {% endfor %}
     <hr>
 
     <h4>10. Articoli di giornalisti nati prima del 1980</h4>
     {% for articolo in articoli_giornalisti %}
-        <p>{{ articolo.titolo }} – {{ articolo.giornalista }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a> – {{ articolo.giornalista }}</p>
     {% endfor %}
     <hr>
 
@@ -80,24 +80,24 @@
 
     <h4>13. Ultimi 5 articoli pubblicati</h4>
     {% for articolo in ultimi %}
-        <p>{{ articolo.titolo }} – {{ articolo.data }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a> – {{ articolo.data }}</p>
     {% endfor %}
     <hr>
 
     <h4>14. Articoli con almeno 100 visualizzazioni</h4>
     {% for articolo in articoli_minime_visualizzazioni %}
-        <p>{{ articolo.titolo }} ({{ articolo.visualizzazioni }})</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a> ({{ articolo.visualizzazioni }})</p>
     {% endfor %}
     <hr>
 
     <h4>15. Articoli che contengono la parola "importante" nel titolo</h4>
     {% for articolo in articoli_parola %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
 
     <h4>16. Articoli pubblicati in un certo mese di un anno specifico</h4>
     {% for articolo in articoli_mese_anno %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
 
     <h4>17. Giornalisti con almeno un articolo con più di 100 visualizzazioni</h4>
@@ -107,16 +107,16 @@
     
     <h4>18. Articoli dopo una certa data e con un minimo di visualizzazioni</h4>
     {% for articolo in articoli_con_and %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
 
     <h4>19. Articoli dopo una certa data o con un massimo di visualizzioni</h4>
     {% for articolo in articoli_con_or %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
 
     <h4>20. Escludere quelli nati prima di una certa data</h4>
     {% for articolo in articoli_con_not %}
-        <p>{{ articolo.titolo }}</p>
+        <p><a href="{% url 'news:articolo_detail' articolo.id %}">{{ articolo.titolo }}</a></p>
     {% endfor %}
 {% endblock content%}
