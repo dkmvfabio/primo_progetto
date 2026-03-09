@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'voti',
     'forms_app',
     'crispy_forms',
-    'crispy_bootstrap4'
+    'crispy_bootstrap4',
+    'accounts'
 ]
 
 MIDDLEWARE = [
